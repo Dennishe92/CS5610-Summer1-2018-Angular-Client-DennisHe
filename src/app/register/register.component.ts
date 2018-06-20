@@ -15,9 +15,14 @@ export class RegisterComponent implements OnInit {
   username;
   password;
   password2;
+  user;
   register(username, password, password2) {
+    // this.service.findUserByUsername(username)
+    //   .then(user => this.user = user);
+
     if (password !== password2) {
       alert('Please make sure your password matches');
+      this.router.navigate (['/register']);
     } else {
       this.service
         .createUser(username, password)

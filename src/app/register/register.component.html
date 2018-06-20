@@ -1,6 +1,8 @@
 <div class="container-fluid">
-  <h1>Register</h1>
 
+  <h1 class="">Register</h1>
+
+  <form class="form-group">
   <input [(ngModel)]="username"
          placeholder="username"
          class="form-control"/>
@@ -15,7 +17,9 @@
     Register
   </button>
 
-  <a routerLink="/login">Login</a>
-  <a routerLink="/home">Home</a>
+  <a routerLink="/login"><button class="btn btn-success btn-block">Login</button></a>
+  <a routerLink="/home"><button class="btn btn-warning btn-block">Home</button></a>
+  </form>
+
 
 </div>
