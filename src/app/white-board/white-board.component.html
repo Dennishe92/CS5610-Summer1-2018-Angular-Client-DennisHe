@@ -1,10 +1,15 @@
 <div class="container-fluid">
-  <h1>
-    White Board
-  </h1>
 
-  <a routerLink="/login">Login</a>
-  <a routerLink="/register">Register</a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><strong>White Board</strong></a>
+
+  <form class="form-inline my-2 my-lg-0">
+  <a routerLink="/login"><button class="btn btn-info mr-sm-2">Login</button></a>
+  <a routerLink="/register"><button class="btn btn-dark">Register</button></a>
+  </form>
+  </nav>
+
+  <br/>
 
   <app-course-grid></app-course-grid>
 </div>
