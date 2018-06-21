@@ -1,1 +1,46 @@
+<div class="container-fluid">
+  <a routerLink="/home">Home</a>
+  <a routerLink="/profile">Profile</a>
+
+  <ul class="list-group">
+    <li  *ngFor="let course of courses"
+         class="list-group-item"
+         (click)="selectCourse(course.id)"
+         [ngClass]="{'active': course.id == courseId}"
+    >
+      {{course.title}}
+    </li>
+  </ul>
+
+  <h1>Add Section</h1>
+  <input [(ngModel)]="sectionName"
+         placeholder="Section Name"
+         class="form-control">
+  <input [(ngModel)]="seats"
+         placeholder="Seats available"
+         class="form-control">
+  <button (click)="createSection(sectionName, seats)" class="btn btn-success btn-block">
+    Add Section
+  </button>
+
+
+  <h1>Section List</h1>
+  <ul class="list-group">
+
+    <li class="list-group-item"
+        *ngFor="let section of sections">
+      <input placeholder="Section Name"
+             class="form-control"
+             [(ngModel)]="section.name"/>
+      <input placeholder="Section Seats"
+             class="form-control"
+             [(ngModel)]="section.seats"/>
+      <button class="btn btn-danger"
+              (click)="deleteSection(section._id)">Delete</button>
+      <button class="btn btn-success"
+              (click)="updateSection(section._id, section.name, section.seats)">Update</button>
+    </li>
+
+  </ul>
+
 

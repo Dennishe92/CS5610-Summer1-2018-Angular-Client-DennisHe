@@ -13,21 +13,29 @@
   <input [(ngModel)]="email"
          placeholder="email"
          class="form-control"/>
-  <button (click)="update()"
+
+  <button (click)="update(username, firstName, lastName, email)"
           class="btn btn-primary btn-block">
     Update
   </button>
 
-  <h2>Sections ({{sections.length}})</h2>
+  <button (click)="logout()"
+          class="btn btn-primary btn-block">
+    Logout
+  </button>
+
+  <h2>Enrolled Sections</h2>
 
   <ul class="list-group">
-    <li *ngFor="let enrollment of sections" class="list-group-item">
+    <li *ngFor="let enrollment of enrollments" class="list-group-item">
       {{enrollment.section.name}}
       ({{enrollment.section.seats}})
+      <button class="btn btn-danger float-right"
+              (click)="unEnrollment(enrollment)">Unenrollment</button>
     </li>
   </ul>
 
-  <a (click)="logout()">Logout</a>
   <a routerLink="/home">Home</a>
+
 
 </div>

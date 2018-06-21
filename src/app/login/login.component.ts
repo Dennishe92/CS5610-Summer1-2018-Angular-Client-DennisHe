@@ -8,6 +8,8 @@ import {UserServiceClient} from '../services/user.service.client';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  constructor(private router: Router,
+              private service: UserServiceClient) { }
 
   username;
   password;
@@ -15,13 +17,16 @@ export class LoginComponent implements OnInit {
     console.log([username, password]);
     this.service
       .login(username, password)
-      .then(() => {
-        this.router.navigate(['profile']);
+      .then((response) => {
+        if (response.status === 404) {
+          alert('Incorrect login information.');
+        } else if (username === 'admin' && password === 'admin') {
+          this.router.navigate(['admin']);
+        } else {
+          this.router.navigate(['profile']);
+        }
       });
   }
-
-  constructor(private router: Router,
-              private service: UserServiceClient) { }
 
   ngOnInit() {
   }
