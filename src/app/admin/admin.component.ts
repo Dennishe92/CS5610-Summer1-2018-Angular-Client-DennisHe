@@ -34,24 +34,18 @@ export class AdminComponent implements OnInit {
   }
 
   loadCourses() {
-    this
-      .courseService
-      .findAllCourses()
+    this.courseService.findAllCourses()
       .then(courses => this.courses = courses);
   }
 
   loadSections(courseId) {
     this.courseId = courseId;
-    this
-      .sectionService
-      .findSectionsForCourse(courseId)
+    this.sectionService.findSectionsForCourse(courseId)
       .then(sections => this.sections = sections);
   }
 
   createSection(sectionName, seats) {
-    this
-      .sectionService
-      .createSection(this.courseId, sectionName, seats)
+    this.sectionService.createSection(this.courseId, sectionName, seats)
       .then(() => {
         this.loadSections(this.courseId);
       });

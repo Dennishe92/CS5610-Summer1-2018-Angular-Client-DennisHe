@@ -45,9 +45,9 @@ export class ProfileComponent implements OnInit {
     this.sectionService
       .unEnrollStudentInSection(enrollment.section._id)
       .then(() => {
-        this.sectionService.findEnrollmentsForStudent()
-          .then(enrollments => this.enrollments = enrollments);
+        this.loadEnrollments();
       });
+    window.location.reload();
   }
 
   loadEnrollments() {
