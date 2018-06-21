@@ -63,7 +63,6 @@ export class AdminComponent implements OnInit {
   }
 
   deleteSection(sectionId) {
-    console.log(sectionId);
     this.sectionService.deleteSection(sectionId)
       .then(() => this.loadSections(this.courseId));
     this.section = new Section();

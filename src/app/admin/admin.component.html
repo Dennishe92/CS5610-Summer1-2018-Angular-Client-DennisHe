@@ -1,6 +1,11 @@
 <div class="container-fluid">
-  <a routerLink="/home">Home</a>
-  <a routerLink="/profile">Profile</a>
+  <div class="form-check-inline">
+  <h1 class="mr-lg-5">Course List</h1>
+    <span>
+  <a routerLink="/home"><button class="btn btn-secondary ml-lg-5 mr-sm-3">Home</button></a>
+  <a routerLink="/profile"><button class="btn btn-info">Profile</button></a>
+      </span>
+</div>
 
   <ul class="list-group">
     <li  *ngFor="let course of courses"
@@ -17,7 +22,7 @@
          placeholder="Section Name"
          class="form-control">
   <input [(ngModel)]="seats"
-         placeholder="Seats available"
+         placeholder="Seats Capacity"
          class="form-control">
   <button (click)="createSection(sectionName, seats)" class="btn btn-success btn-block">
     Add Section
@@ -35,10 +40,10 @@
       <input placeholder="Section Seats"
              class="form-control"
              [(ngModel)]="section.seats"/>
-      <button class="btn btn-danger"
-              (click)="deleteSection(section._id)">Delete</button>
-      <button class="btn btn-success"
+      <button class="btn btn-outline-success"
               (click)="updateSection(section._id, section.name, section.seats)">Update</button>
+      <button class="btn btn-outline-danger float-right"
+              (click)="deleteSection(section._id)">Delete</button>
     </li>
 
   </ul>

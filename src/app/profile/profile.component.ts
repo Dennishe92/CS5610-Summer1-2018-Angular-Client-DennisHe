@@ -58,7 +58,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.service
       .profile()
-      .then(((user) => {
+      .then((user) => {
         if (user === undefined) {
           this.router.navigate(['login']);
         }
@@ -69,7 +69,7 @@ export class ProfileComponent implements OnInit {
         this.phone = user.phone;
         this.email = user.email;
         this.address = user.address;
-      }));
+      });
     this.loadEnrollments();
   }
 }

@@ -14,18 +14,19 @@ export class LoginComponent implements OnInit {
   username;
   password;
   login(username, password) {
-    console.log([username, password]);
-    this.service
-      .login(username, password)
-      .then((response) => {
-        if (response.status === 404) {
-          alert('Incorrect login information.');
-        } else if (username === 'admin' && password === 'admin') {
-          this.router.navigate(['admin']);
-        } else {
-          this.router.navigate(['profile']);
-        }
-      });
+    if (username === 'admin' && password === 'admin') {
+      this.router.navigate(['admin']);
+    } else {
+      this.service
+        .login(username, password)
+        .then((response) => {
+          if (response.status === 404) {
+            alert('Incorrect login information.');
+          } else {
+            this.router.navigate(['profile']);
+          }
+        });
+    }
   }
 
   ngOnInit() {

@@ -2,40 +2,42 @@
   <h1>Profile</h1>
 
   <input [(ngModel)]="username"
-         placeholder="username"
+         placeholder="Username"
          class="form-control"/>
   <input [(ngModel)]="firstName"
-         placeholder="first name"
+         placeholder="First Name"
          class="form-control"/>
   <input [(ngModel)]="lastName"
-         placeholder="lastName"
+         placeholder="Last Name"
          class="form-control"/>
   <input [(ngModel)]="email"
-         placeholder="email"
+         placeholder="Email"
          class="form-control"/>
 
   <button (click)="update(username, firstName, lastName, email)"
-          class="btn btn-primary btn-block">
+          class="btn btn-success btn-block">
     Update
   </button>
 
   <button (click)="logout()"
-          class="btn btn-primary btn-block">
+          class="btn btn-secondary btn-block">
     Logout
   </button>
 
   <h2>Enrolled Sections</h2>
 
   <ul class="list-group">
-    <li *ngFor="let enrollment of enrollments" class="list-group-item">
-      {{enrollment.section.name}}
-      ({{enrollment.section.seats}})
+    <li *ngFor="let enrollment of enrollments" class="list-group-item form-inline">
+      <strong>Section Name:</strong> {{enrollment.section.name}}
+      <br/>
+      <strong>Seats Remaining:</strong> {{enrollment.section.seats}}
       <button class="btn btn-danger float-right"
+              id="unenrollbtn"
               (click)="unEnrollment(enrollment)">Unenrollment</button>
     </li>
   </ul>
 
-  <a routerLink="/home">Home</a>
+  <a routerLink="/home"><button class="btn btn-info btn-block">Home</button></a>
 
 
 </div>
